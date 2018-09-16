@@ -1,0 +1,13 @@
+<h1>ユーザー詳細ページです</h1>
+<p>ユーザー名</p>
+<%= @user.user_name %>
+
+<p>出品物一覧</p>
+  <% @user.products.each do |product|%>
+  <%= link_to image_tag(product.image_url), product %>
+  <% end %>
+
+  <% if user_signed_in? && @user == current_user %>
+  <%= link_to "edit", edit_user_registration_path	%>
+  <%= link_to 'New Product', new_product_path %>
+  <% end %>

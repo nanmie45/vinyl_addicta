@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<table>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.artist %></td>
+        <td><%= product.title %></td>
+        <td><%= link_to image_tag(product.image_url), product %></td>
+        <td><%= product.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+    <% if user_signed_in? %>
+      <%= link_to 'New Product', new_product_path %>
+    <% end %>
