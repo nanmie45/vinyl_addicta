@@ -18,10 +18,10 @@ class ApplicationController < ActionController::Base
           session[:cart_id] = @cart.id
         end
       end
-      
+
   protected
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name, :admin])
     end
 end
