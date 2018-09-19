@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @user = @product.user
+    @category = @product.category
   end
 
   # GET /products/new
@@ -79,7 +80,7 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     # セキュリティのためのメソッド permit()内の値のみを取得する。
     def product_params
-      params.require(:product).permit(:artist, :title, :image, :user_id, :price, :discription)
+      params.require(:product).permit(:artist, :title, :image, :user_id, :price, :discription, :category_id)
 
     end
 end

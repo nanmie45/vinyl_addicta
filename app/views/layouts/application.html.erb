@@ -24,6 +24,10 @@
       <%= link_to 'Are you new?', new_user_registration_path %> <br>
       <%= link_to 'LOG-IN', new_user_session_path %>
     <% end %>
+    <% @category = Category.all %>
+    <% @category.each do |category| %>
+    <%= link_to category.name, category %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
