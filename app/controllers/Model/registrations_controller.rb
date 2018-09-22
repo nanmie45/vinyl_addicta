@@ -25,9 +25,14 @@ class Model::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    if current_user == resource && current_user.admin?
+      flash[:error] == "You can't delete yourself because of you are the owener for this site"
+      redirect_to user_path(resource)
+    else
+      super
+    end
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

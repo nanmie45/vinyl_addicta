@@ -8,6 +8,7 @@
   <% @category.products.each do |product| %>
   <%= link_to image_tag(product.image_url), product %>
   <% end %>
-
+<% if current_user.admin %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<% end %>
+  <%= link_to 'Back', categories_path %>

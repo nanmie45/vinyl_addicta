@@ -72,15 +72,13 @@ class ProductsController < ApplicationController
 
     def ensure_correct_user
       @product = Product.find(params[:id])
-      if @product.user_id != current_user.id
-        redirect_to (root_path)
+     if @product.user_id != current_user.id
+      redirect_to (root_path)
      end
-
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     # セキュリティのためのメソッド permit()内の値のみを取得する。
     def product_params
       params.require(:product).permit(:artist, :title, :image, :user_id, :price, :discription, :category_id)
-
     end
 end

@@ -8,8 +8,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
-
   def products
     return Product.where(user_id: self.id)
   end

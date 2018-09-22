@@ -1,3 +1,7 @@
+<% if user_signed_in? && current_user.admin %>
+<p>adminユーザーです</p>
+<% end %>
+
 <h1>ユーザー詳細ページです</h1>
 <p>ユーザー名</p>
 <%= @user.user_name %>
