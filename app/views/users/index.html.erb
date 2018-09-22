@@ -1,5 +1,11 @@
 <h1>ユーザー一覧ページ</h1>
-
+<p>ユーザー検索</p>
+<%= form_tag users_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :user_name => nil %>
+    <% end %>
+  </p>
   <% @users.each do |user| %>
     <%= link_to user.user_name, user %>
   <% end %>

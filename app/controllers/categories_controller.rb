@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
+
   # GET /categories
   # GET /categories.json
   def index
@@ -73,7 +73,5 @@ class CategoriesController < ApplicationController
       params.require(:category).permit(:name)
     end
 
-    def admin_user
-     redirect_to(root_path) unless current_user.admin?
-   end
+
 end

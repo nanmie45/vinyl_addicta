@@ -3,7 +3,9 @@ class Ability
 
 
   def initialize(user)
+  byebug
     if user && user.admin?
+    byebug
       can :access, :rails_admin
       can :manage, :all
     else
